@@ -34,20 +34,14 @@ public class Escuadron {
     }
 
     public Boolean escuadronTieneUnDronAvanzado(){
-        for (Dron dron : drones) {
-            if(dron.esAvanzado()){
-                return true;
-            }
-        }
-        return false;
+        return drones.stream().anyMatch(d -> d.esAvanzado());
     }
 
     public void agregarDron(Dron dron){
-        if(dronesMaximo >= drones.size()){
-            drones.add(dron);
-        }else{
+        if(dronesMaximo == drones.size()){
             throw new RuntimeException("Supera la cantidad máxima definida por la ciudad");
         }
+        drones.add(dron);
     }
 
     public void operarEnLaZona_(Zona zona){
