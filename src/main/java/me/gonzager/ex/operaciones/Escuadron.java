@@ -30,7 +30,7 @@ public class Escuadron {
     }
     
     public Boolean puedeOperarEn_(Zona zona){
-        return this.escuadronTieneUnDronAvanzado() && dronesMaximo > zona.getTamanioTotal() * 2;
+        return this.escuadronTieneUnDronAvanzado() && capacidadOperativa() > zona.getTamanioTotal() * 2;
     }
 
     public Boolean escuadronTieneUnDronAvanzado(){
@@ -49,5 +49,9 @@ public class Escuadron {
             zona.registrarOperacion();
             drones.stream().forEach(s -> s.setAutonomia(s.getAutonomia() - 2));
         }
+    }
+
+    public Double capacidadOperativa(){
+        return drones.stream().mapToDouble(d -> d.eficienciaOperativa()).sum();
     }
 }
