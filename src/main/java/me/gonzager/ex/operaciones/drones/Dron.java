@@ -18,6 +18,9 @@ public abstract class Dron {
     }
 
     public void setAutonomia(Integer autonomia) {
+        if(autonomia < 0){
+            throw new RuntimeException("No se puede registrar una autonomia mejor a cero");
+        }
         this.autonomia = autonomia;
     }
 

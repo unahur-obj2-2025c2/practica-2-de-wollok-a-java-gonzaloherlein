@@ -24,8 +24,4 @@ public class Zona {
     public void setCantidadDeOperaciones(Integer cantidadDeOperaciones) {
         this.cantidadDeOperaciones = cantidadDeOperaciones;
     }
-
-    public void registrarOperacion(){
-        this.cantidadDeOperaciones += 1;
-    }
 }

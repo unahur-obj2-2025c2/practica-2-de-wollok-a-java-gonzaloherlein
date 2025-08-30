@@ -46,7 +46,7 @@ public class Escuadron {
 
     public void operarEnLaZona_(Zona zona){
         if(puedeOperarEn_(zona)){
-            zona.registrarOperacion();
+            zona.setCantidadDeOperaciones(zona.getCantidadDeOperaciones() + 1);
             drones.stream().forEach(s -> s.setAutonomia(s.getAutonomia() - 2));
         }
     }
